@@ -24,6 +24,20 @@
         <a class="p-2 text-dark" href="#"><%= link_to "Contact Us", static_pages_contact_path %> </a>
         <a class="p-2 text-dark" href="#"> <%= link_to "All Products", products_path %> </a>
         <a class="p-2 text-dark" href="#"> <%= link_to "Reviews", reviews_path %> </a>
+        <a class="p-2 text-dark" href="#"> <%= link_to "Register", new_user_path %> </a>
+        <% if current_user %>
+         <a class="p-2 text-dark" href="#">
+          <%= link_to 'Log out', session_path('active'), method:
+          :delete %>
+         </a>
+         <a class="p-2 text-dark" href="#">
+          <%= current_user.userid %>
+         </a>
+         <% else %>
+         <a class="p-2 text-dark" href="#">
+          <%= link_to 'Log in', new_session_path, class: "active_nav_link" %>
+         </a>
+         <% end %>
 
 
        
